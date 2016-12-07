@@ -8,7 +8,7 @@ Features:
 - [#2136](https://github.com/rails-api/active_model_serializers/pull/2136) Enable inclusion of sideloaded relationship objects by `key`. (@caomania)
 
 - [#2021](https://github.com/rails-api/active_model_serializers/pull/2021) ActiveModelSerializers::Model#attributes. Originally in [#1982](https://github.com/rails-api/active_model_serializers/pull/1982). (@bf4)
-- [#2130](https://github.com/rails-api/active_model_serializers/pull/2130) Allow serialized ID to be overwritten for belongs-to relationships. (@greysteil)
+- [#1995](https://github.com/rails-api/active_model_serializers/pull/1995) Allow STI type deserialization (@gauthier-delacroix).
 
 Fixes:
 

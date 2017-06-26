@@ -19,7 +19,13 @@ module ActiveModelSerializers
               .gsub!('/'.freeze, ActiveModelSerializers.config.jsonapi_namespace_separator)
             raw_type
           end
-          JsonApi.send(:transform_key_casing!, raw_type, transform_options)
+          if ActiveModelSerializers.config.jsonapi_namespace_separator
+            raw_type.split(ActiveModelSerializers.config.jsonapi_namespace_separator).map do |split|
+              JsonApi.send(:transform_key_casing!, split, transform_options)
+            end.join(ActiveModelSerializers.config.jsonapi_namespace_separator)
+          else
+            JsonApi.send(:transform_key_casing!, raw_type, transform_options)
+          end
         end
 
         def self.for_type_with_id(type, id, options)

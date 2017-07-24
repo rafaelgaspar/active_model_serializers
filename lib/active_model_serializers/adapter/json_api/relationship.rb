@@ -46,7 +46,7 @@ module ActiveModelSerializers
           if association.belongs_to? &&
               parent_serializer.object.respond_to?(association.reflection.foreign_key)
             id = parent_serializer.read_attribute_for_serialization(association.reflection.foreign_key)
-            type = association.reflection.type.to_s
+            type = association.reflection.type ? association.reflection.type.to_s : association.lazy_association.serializer.json_key
             ResourceIdentifier.for_type_with_id(type, id, serializable_resource_options)
           else
             # TODO(BF): Process relationship without evaluating lazy_association

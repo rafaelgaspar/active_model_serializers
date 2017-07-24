@@ -56,8 +56,7 @@ module ActiveModel
         options[:include_data_setting] = Serializer.config.include_data_default
         options[:meta] = nil
         @type = options.fetch(:type) do
-          class_name = options.fetch(:class_name, name.to_s.camelize.singularize)
-          class_name.underscore.pluralize.to_sym
+          options[:class_name] ? options[:class_name].underscore.pluralize.to_sym : nil
         end
         @foreign_key = options.fetch(:foreign_key) do
           if collection?

@@ -53,7 +53,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'm', '~> 1.5'
   gem 'pry', '~> 0.10'
-  gem 'pry-byebug', '~> 3.4', platform: :ruby
+  gem 'pry-byebug', '>= 3.4', platform: :ruby
 end
 
 group :development, :test do
